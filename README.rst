@@ -34,14 +34,21 @@ referennce: https://stackoverflow.com/questions/747719/how-to-build-gnu-classpat
 
     make -j4 && sudo make install
 
-4. cd into JamVm code repo directory
+4. install libffi
 
 .. code-block:: bash
 
+   brew install libffi
+
+
+5. cd into JamVm code repo directory
+
+.. code-block:: bash
+
+   ./configure --enable-ffi
     make -j4 && sudo make install
     ln -sv src/jamvm $PATH
 
-5. done
 
 
 Original Release Note:
