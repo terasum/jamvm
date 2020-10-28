@@ -1,3 +1,48 @@
+To build JamVM for macOS 10.15.7, follow below instructions:
+
+1. git clone this project (some code has been modified)
+
+2. install jikes (a java compiler) from [here](https://sourceforge.net/projects/jikes/):
+
+```
+./configure
+make && sudo make install
+ln src/jikes $PATH
+```
+
+3. install [gnuclasspath](https://www.gnu.org/software/classpath/downloads/downloads.html)
+
+referennce: https://stackoverflow.com/questions/747719/how-to-build-gnu-classpath-and-jamvm
+```
+./configure --disable-gtk-peer --disable-gconf-peer --disable-tools
+
+vim ./native/jni/java-io/java_io_VMConsole.c
+# add this line in the beginning of the file:
+#define IUCLC   0001000
+
+vim ./configure
+# add this line in the start of file
+# and replace conditional assignment with JAVAC_IS_GCJ=no
+
+export JAVAC=$(which javac)
+
+vim ./Makefile and delete $(EXAMPLESDIR) from SUBDIRS = ... line
+
+# then:
+
+make -j4 && sudo make install
+```
+
+4. cd into JamVm code repo directory
+```
+make -j4 && sudo make install
+ln -sv src/jamvm $PATH
+```
+
+
+
+Original Release Note:
+
 JamVM 2.0.0
 ===========
 
