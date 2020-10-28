@@ -2,7 +2,7 @@ To build JamVM for macOS 10.15.7, follow below instructions:
 
 1. git clone this project (some code has been modified)
 
-2. install jikes (a java compiler) from [here](https://sourceforge.net/projects/jikes/):
+2. install jikes (a java compiler) from https://sourceforge.net/projects/jikes/ :
 
 .. code-block:: bash
 
@@ -10,7 +10,7 @@ To build JamVM for macOS 10.15.7, follow below instructions:
     make && sudo make install
     ln src/jikes $PATH
 
-3. install [gnuclasspath](https://www.gnu.org/software/classpath/downloads/downloads.html)
+3. install gnuclasspath: https://www.gnu.org/software/classpath/downloads/downloads.html
 
 referennce: https://stackoverflow.com/questions/747719/how-to-build-gnu-classpath-and-jamvm
 
