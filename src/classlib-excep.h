@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 Robert Lougher <rob@lougher.org.uk>.
+ * Copyright (C) 2013 Robert Lougher <rob@jamvm.org.uk>.
  *
  * This file is part of JamVM.
  *
@@ -18,8 +18,4 @@
  * Foundation, 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifdef __x86_64__
-#include "arch/x86_64.h"
-#else
-#include "arch/i386.h"
-#endif
+#define CLASSLIB_EXCEPTIONS_DO(action)

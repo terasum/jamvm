@@ -21,7 +21,7 @@
 
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(jamvm, 2.0.1-devel)
+AC_INIT(jamvm, 2.0.0)
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR(src/jam.c)
 AC_CONFIG_HEADERS([src/config.h])
@@ -212,11 +212,10 @@ AC_ARG_ENABLE(profile-stubs,
     [AS_HELP_STRING(--enable-profile-stubs,JNI stubs support profiling)],,)
 
 AC_ARG_WITH(java-runtime-library,
-    [AS_HELP_STRING(--with-java-runtime-library=[[[gnuclasspath|openjdk6|openjdk7|openjdk8|openjdk9]]],
+    [AS_HELP_STRING(--with-java-runtime-library=[[[gnuclasspath|openjdk6|openjdk7|openjdk8]]],
                     which Java runtime library interface to use (default gnuclasspath))],
     [if test "$withval" != gnuclasspath -a "$withval" != openjdk6 -a \
-             "$withval" != openjdk7 -a "$withval" != openjdk8 -a \
-             "$withval" != openjdk9; then
+             "$withval" != openjdk7 -a "$withval" != openjdk8; then
         AC_MSG_ERROR($withval Java runtime library is not supported)
      fi],
     [with_java_runtime_library=gnuclasspath])
@@ -362,7 +361,7 @@ case "$with_java_runtime_library" in
     openjdk7 )
         AC_DEFINE([JSR292],1,[VM support for JSR292 (invokedynamic)]) ;;
 
-    openjdk8 | openjdk9 )
+    openjdk8 )
         AC_DEFINE([JSR292],1,[VM support for JSR292 (invokedynamic)])
         AC_DEFINE([JSR308],1,[VM support for JSR308 (type annotations)])
         AC_DEFINE([JSR335],1,[VM support for JSR335 (lambda expressions)])
